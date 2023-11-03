@@ -21,7 +21,7 @@
 </f:form>
 
 <div class="tx-dlf-listview">
-   <f:variable name="currentPage" value="{widgetPage.currentPage - 1}" />
+   <f:variable name="currentPage" value="{pagination.currentPageNumber - 1}" />
    <f:variable name="pageOffset" value="{settings.list.paginate.itemsPerPage * currentPage}" />
    <f:variable name="allDocuments" value="{documents->f:count()}" />
    <f:variable name="numDocuments" value="{pageOffset + settings.list.paginate.itemsPerPage}" />
@@ -61,9 +61,9 @@
       </div>
    </f:form>
 
-   <f:widget.paginate objects="{documents}" as="paginatedDocuments" configuration="{settings.list.paginate}">
+   <f:render partial="Lists/Pagination" arguments="{_all}" />
       <ol class="tx-dlf-abstracts">
-         <f:for each="{paginatedDocuments}" as="document" iteration="docIterator">
+         <f:for each="{paginator.paginatedItems}" as="document" iteration="docIterator">
             <f:variable name="docTitle" value="{f:if(condition:'{document.title}', then:'{document.title}', else:'{document.metsOrderlabel}')}" />
             <li value="{settings.list.paginate.itemsPerPage * pageOffset + docIterator.index}">
                <f:link.page
@@ -196,5 +196,5 @@
             </li>
          </f:for>
       </ol>
-   </f:widget.paginate>
+      <f:render partial="Lists/Pagination" arguments="{_all}" />
 </div>

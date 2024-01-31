@@ -148,6 +148,11 @@ lib.kitodo.navigation.viewfunction {
 
 plugin.tx_dlf_toolbox < tt_content.list.20.dlf_toolbox
 plugin.tx_dlf_toolbox {
+    #view {
+    #    templateRootPaths {
+    #        20 = EXT:dlf/Resources/Private/Templates/Toolbox/
+    #    }
+    #}
     settings {
 #        fileGrpsImageDownload = MIN,DEFAULT,MAX
     }

@@ -69,7 +69,7 @@ lib.menu {
     breadCrumbNavigation = HMENU
     breadCrumbNavigation {
         special = rootline
-        special.range = 0|-1
+        special.range = 0|1
         1 = TMENU
         1 {
             expAll = 1
